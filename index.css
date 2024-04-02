@@ -1,0 +1,83 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+}
+
+body {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: darkslategray;
+}
+
+body > div {
+    margin-top: 45px;
+    width: 1000px;
+    background-color: #1b2e2e;
+    border-left: #1b2e2e solid 45px;
+    border-bottom: #1b2e2e solid 45px;
+    border-right: #1b2e2e solid 45px;
+    border-radius: 45px;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 8vh;
+}
+
+#questionHeader {
+    display: flex;
+    flex-wrap: wrap-reverse;
+    justify-content: space-between;
+}
+
+#gameButtons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 20px;
+}
+
+#restartButton > i:hover {
+    color: #fdfd96;
+}
+
+#cancelButton > i:hover {
+    color: #ff6961;
+}
+
+#questionForm {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.inputDiv {
+    background-color: darkslategray;
+    border: 15px solid darkslategray;
+    border-radius: 15px;
+}
+
+#scores {
+    margin-top: 45px;
+    display: flex;
+    justify-content: center;
+}
+
+#scoreTable {
+    background-color: #1b2e2e;
+    border: #1b2e2e solid 15px;
+    border-radius: 15px;
+}
+
+#scoreTable th,
+#scoreTable td {
+    padding: 15px;
+    border: solid black 1px;
+    border-radius: 8px;
+}

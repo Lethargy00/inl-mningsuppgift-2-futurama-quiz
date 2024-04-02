@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Futurama</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+    <div>
+        <header>
+            <h1>Futurama Questions</h1>
+        </header>
+        <main>
+            <div id="questionHeader">
+                <h2 class="questionText">Questions inserted here?</h2>
+                <div id="gameButtons">
+                    <a href="#" id="startButton">Start</a>
+                    <a href="#" id="restartButton"><i class="fa-solid fa-rotate-right"></i></a>
+                    <a href="#" id="cancelButton"><i class="fa-regular fa-circle-xmark"></i></a>
+                </div>
+            </div>
+            <form action="post" id="questionForm">
+                <div class="inputDiv">
+                    <input type="radio" id="firstInput" name="radioButton">
+                    <label for="firstInput">First Answer</label>
+                </div>
+                <div class="inputDiv">
+                    <input type="radio" id="secondInput" name="radioButton">
+                    <label for="secondInput">Second Answer</label>
+                </div>
+                <div class="inputDiv">
+                    <input type="radio" id="thirdInput" name="radioButton">
+                    <label for="thirdInput">Third Answer</label>
+                </div>
+                <div class="inputDiv">
+                    <input type="radio" id="fourthInput" name="radioButton">
+                    <label for="fourthInput">Fourth Answer</label>
+                </div>
+            </form>
+        </main>
+
+        <footer></footer>
+    </div>
+    <section id="scores">
+        <table id="scoreTable">
+            <tr>
+                <th>Nr</th>
+                <th>Score</th>
+                <th>Date</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>6/10</td>
+                <td>2024-03-31</td>
+            </tr>
+        </table>
+    </section>
+    <script src="https://kit.fontawesome.com/61a5b666ff.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
