@@ -120,7 +120,7 @@ body > div {
 }
 
 #scoreTable th {
-    background-color: darkslategray;
+    background-color: #243D3D;
 }
 
 #scoreTable th,
@@ -138,9 +138,10 @@ body > div {
     background-color: darkslategray;
 }
 
-.currentScore {
+#currentScore {
   background-color: #1b2e2e;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
 }
 
@@ -154,8 +155,21 @@ body > div {
   margin: 5px;
   font-size: 1.3em;
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
-  border: 1px solid white;
+  border: 1px solid darkslategray;
   border-radius: 5px;
+}
+
+.activeQuestion {
+    background-color: darkslategrey;
+    border: 1px solid white;
+}
+
+.scoreDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
