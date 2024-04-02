@@ -1,17 +1,17 @@
-const btnStartQuiz = document.getElementById("btn-start-quiz");
+const btnStartQuiz = document.getElementById("startButton");
 const questionsSection = document.getElementById("questionsSection");
 const resultSection = document.getElementById("resultSection");
-const question = document.getElementById("question");
+const question = document.getElementById("questionText");
 const alt1 = document.getElementById("alt1");
 const alt2 = document.getElementById("alt2");
 const alt3 = document.getElementById("alt3");
 const alt4 = document.getElementById("alt4");
-const inpAlt1 = document.getElementById("inp-alt1");
-const inpAlt2 = document.getElementById("inp-alt2");
-const inpAlt3 = document.getElementById("inp-alt3");
-const inpAlt4 = document.getElementById("inp-alt4");
+const inpAlt1 = document.getElementById("firstInput");
+const inpAlt2 = document.getElementById("secondInput");
+const inpAlt3 = document.getElementById("thirdInput");
+const inpAlt4 = document.getElementById("fourthInput");
 const btnAnswer = document.getElementById("btn-answer");
-const btnResetQuiz = document.getElementById("btn-reset");
+const btnResetQuiz = document.getElementById("restartButton");
 
 const spanNumberOfQuestionsAnswered = document.getElementById("numberOfQuestionsAnswered");
 const spanNumberOfCorrectAnswers = document.getElementById("numberOfCorrectAnswers");
@@ -55,8 +55,8 @@ function startNewQuiz() {
     btnStartQuiz.classList.add("hidden");
 
     // Show elements
-    questionsSection.classList.remove("hidden");
-    resultSection.classList.remove("hidden");
+    // questionsSection.classList.remove("hidden"); TODO: IMPLEMENT THIS
+    // resultSection.classList.remove("hidden"); TODO: IMPLEMENT THIS
   }
 }
 
