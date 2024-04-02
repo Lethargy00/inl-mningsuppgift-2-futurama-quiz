@@ -1,47 +1,47 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
 * {
   margin: 0;
   padding: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Space Mono", sans-serif;
   color: white;
 }
 
 body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: darkslategray;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: darkslategray;
 }
 
-header {
-  margin-top: 45px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #1b2e2e;
-  border: #1b2e2e solid 15px;
-  border-radius: 15px;
+header {    
+    margin-top: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #1b2e2e;
+    border: #1b2e2e solid 15px;
+    border-radius: 15px;
 }
 
 body > div {
-  margin-top: 45px;
-  background-color: #1b2e2e;
-  border: #1b2e2e solid 45px;
-  border-radius: 45px;
-}
-
-body > div > main {
-  width: 80vw;
+    margin-top: 45px;
+    width: 80vw;
+    background-color: #1b2e2e;
+    border: #1b2e2e solid 45px;
+    border-radius: 45px;
 }
 
 #questionHeader {
   display: flex;
-  flex-wrap: wrap-reverse;
+  flex-wrap: wrap;
   justify-content: space-between;
 }
 
 #gameButtons {
   display: flex;
   align-items: center;
+  margin-left: auto;
   gap: 10px;
   font-size: 20px;
 }
@@ -57,20 +57,54 @@ body > div > main {
 #questionForm {
   margin-top: 25px;
   display: flex;
+  align-items: center;
   flex-direction: column;
   gap: 15px;
 }
 
 .inputDiv {
+  width: 100%;
   background-color: darkslategray;
-  border: 15px solid darkslategray;
+  padding: 15px;
+  border: 2px solid darkslategray;
   border-radius: 15px;
 }
 
+.inputDiv:hover {
+    border-color: white;
+    cursor: pointer;
+}
+
+#btn-answer {
+    align-self: flex-end;
+    padding: 15px;
+    border: 2px solid darkslategray;
+    border-radius: 15px;
+    background-color: darkslategray;
+}
+
+#btn-answer:hover {
+    border: white 2px solid;
+    cursor: pointer;
+}
+
+.currentScore {
+    display: flex;
+    flex-wrap: wrap;
+}
+
 #startButton {
-  font-style: none;
-  text-decoration: none;
-  background-color: darkslategray;
+    padding: 15px;
+    font-size: 80px;
+    margin-top: 45px;
+    border: solid 2px #1b2e2e;
+    border-radius: 15px;
+    background-color: #1b2e2e;
+    cursor: pointer;
+}
+
+#startButton:hover {
+    border-color: white;
 }
 
 #scores {
@@ -85,17 +119,33 @@ body > div > main {
   border-radius: 15px;
 }
 
+#scoreTable th {
+    background-color: darkslategray;
+}
+
 #scoreTable th,
 #scoreTable td {
   padding: 15px;
-  border: solid black 1px;
-  border-radius: 8px;
+  border: 5px #1b2e2e solid;
+  border-radius: 12px;
 }
 
-#currentScore {
+#scoreTable tr:nth-child(odd) td {
+    background-color: #243D3D;
+}
+
+#scoreTable tr:nth-child(even) td {
+    background-color: darkslategray;
+}
+
+.currentScore {
   background-color: #1b2e2e;
   display: flex;
   justify-content: center;
+}
+
+.hidden {
+    display: none;
 }
 
 .resultDiv {
@@ -106,18 +156,6 @@ body > div > main {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid darkslategray;
-  border-radius: 5px;
-}
-
-.activeQuestion {
-  background-color: darkslategrey;
   border: 1px solid white;
-}
-
-.scoreDiv {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  border-radius: 5px;
 }
