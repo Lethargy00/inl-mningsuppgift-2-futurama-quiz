@@ -12,6 +12,7 @@ const inpAlt3 = document.getElementById("thirdInput");
 const inpAlt4 = document.getElementById("fourthInput");
 const btnAnswer = document.getElementById("btn-answer");
 const currentScore = document.getElementById("currentScore");
+const errorMessage = document.getElementById("errorMessage");
 
 const btnResetQuiz = document.getElementById("restartButton");
 
@@ -22,15 +23,22 @@ let allFuturamaQuestions = [];
 let randomizedFuturamaQuestions = [];
 let answers = [];
 
-(async function fetchFuturamaQuestions() {
-  const response = await fetch("https://api.sampleapis.com/futurama/questions");
-  const data = await response.json();
+let fetchSuccess = false;
 
-  if (response.ok) {
-    futuramaQuestions = data;
-    console.log(data);
-  } else {
-    console.log("Error fetching data");
+(async function fetchFuturamaQuestions() {
+  try {
+    const response = await fetch("https://da-demo.github.io/api/futurama/questions");
+    fetchSuccess = true;
+    const data = await response.json();
+    allFuturamaQuestions = data;
+  } catch (error) {
+    console.log(error);
+    fetchSuccess = false;
+    hideElement(btnStartQuiz);
+    showElement(errorMessage);
+  } finally {
+    console.log(fetchSuccess);
+    // TODO: Hide loading spinner
   }
 })();
 
@@ -47,10 +55,10 @@ function generateRandomNumbers() {
 }
 
 function startNewQuiz() {
-  if (randomizedFuturamaQuestions.length === 0) {
+  if (randomizedFuturamaQuestions.length === 0 && fetchSuccess) {
     // Generate ten radom questions
     const randomNumbers = generateRandomNumbers();
-    randomizedFuturamaQuestions = randomNumbers.map(number => futuramaQuestions[number]);
+    randomizedFuturamaQuestions = randomNumbers.map(number => allFuturamaQuestions[number]);
     populateQuestion(0);
 
     // Hide elements
@@ -58,6 +66,8 @@ function startNewQuiz() {
 
     // Show elements
     showElement(questionsSection);
+  } else {
+    console.log("Error fetching data");
   }
 }
 
