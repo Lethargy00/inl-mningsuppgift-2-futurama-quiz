@@ -24,18 +24,15 @@ header {
 
 body > div {
     margin-top: 45px;
+    width: 80vw;
     background-color: #1b2e2e;
     border: #1b2e2e solid 45px;
     border-radius: 45px;
 }
 
-body > div > main {
-    width: 80vw;
-}
-
 #questionHeader {
   display: flex;
-  flex-wrap: wrap-reverse;
+  flex-wrap: wrap;
   justify-content: space-between;
 }
 
@@ -57,20 +54,44 @@ body > div > main {
 #questionForm {
   margin-top: 25px;
   display: flex;
+  align-items: center;
   flex-direction: column;
   gap: 15px;
 }
 
 .inputDiv {
+  width: 100%;
   background-color: darkslategray;
   border: 15px solid darkslategray;
   border-radius: 15px;
 }
 
-#startButton {
-    font-style: none;
-    text-decoration: none;
+#btn-answer {
+    align-self: flex-end;
+    padding: 15px;
+    border: 2px solid darkslategray;
+    border-radius: 15px;
     background-color: darkslategray;
+}
+
+#btn-answer:hover {
+    border: white 2px solid;
+    cursor: pointer;
+}
+
+.currentScore {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#startButton {
+    padding: 15px;
+    font-size: 80px;
+    margin-top: 45px;
+    border: solid 2px #1b2e2e;
+    border-radius: 15px;
+    background-color: #1b2e2e;
+    cursor: pointer;
 }
 
 #scores {
@@ -96,6 +117,10 @@ body > div > main {
   background-color: #1b2e2e;
   display: flex;
   justify-content: center;
+}
+
+.hidden {
+    display: none;
 }
 
 .resultDiv {
