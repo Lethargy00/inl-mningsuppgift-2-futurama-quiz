@@ -88,16 +88,14 @@ function checkAnswer(questionNumber) {
     answers.push(false);
   }
 
-  spanNumberOfQuestionsAnswered.textContent = answers.length;
-  spanNumberOfCorrectAnswers.textContent = answers.filter(answer => answer === true).length;
-
   console.log(answers);
   if (answers.length < 10) {
-    // Clear the checked radio button
-    const radiobuttons = document.getElementsByName("answer");
-    for (var i = 0; i < radiobuttons.length; i++) {
-      radiobuttons[i].checked = false;
-    }
+    // Clear the checked radio button TODO: IMPLEMENT THIS?!
+
+    // const radiobuttons = document.getElementsByName("answer");
+    // for (var i = 0; i < radiobuttons.length; i++) {
+    //   radiobuttons[i].checked = false;
+    // }
 
     // Populate the next question
     populateQuestion(answers.length);
