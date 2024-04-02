@@ -1,108 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Futurama</title>
+    <link rel="stylesheet" href="./index.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Futurama</title>
-  <link rel="stylesheet" href="./index.css" />
-</head>
+  <body>
+    <header>
+      <h1>Futurama Questions</h1>
+    </header>
+    <div>
+      <main>
+        <div id="questionHeader">
+          <h2 id="questionText">Questions inserted here?</h2>
+          <div id="gameButtons">
+            <a href="" id="restartButton"><i class="fa-solid fa-rotate-right"></i></a>
+            <a href="" id="cancelButton"><i class="fa-regular fa-circle-xmark"></i></a>
+          </div>
+        </div>
+        <form action="post" id="questionForm">
+          <div class="inputDiv">
+            <input type="radio" id="firstInput" name="answer" />
+            <label for="firstInput" id="alt1">First Answer</label>
+          </div>
+          <div class="inputDiv">
+            <input type="radio" id="secondInput" name="answer" />
+            <label for="secondInput" id="alt2">Second Answer</label>
+          </div>
+          <div class="inputDiv">
+            <input type="radio" id="thirdInput" name="answer" />
+            <label for="thirdInput" id="alt3">Third Answer</label>
+          </div>
+          <div class="inputDiv">
+            <input type="radio" id="fourthInput" name="answer" />
+            <label for="fourthInput" id="alt4">Fourth Answer</label>
+          </div>
 
-<body>
-  <header>
-    <h1>Futurama Questions</h1>
-  </header>
-  <div>
-    <main>
-      <div id="questionHeader">
-        <h2 id="questionText">Questions inserted here?</h2>
-        <div id="gameButtons">
-          <a href="" id="restartButton"><i class="fa-solid fa-rotate-right"></i></a>
-          <a href="" id="cancelButton"><i class="fa-regular fa-circle-xmark"></i></a>
-        </div>
-      </div>
-      <form action="post" id="questionForm">
-        <div class="inputDiv">
-          <input type="radio" id="firstInput" name="answer" />
-          <label for="firstInput" id="alt1">First Answer</label>
-        </div>
-        <div class="inputDiv">
-          <input type="radio" id="secondInput" name="answer" />
-          <label for="secondInput" id="alt2">Second Answer</label>
-        </div>
-        <div class="inputDiv">
-          <input type="radio" id="thirdInput" name="answer" />
-          <label for="thirdInput" id="alt3">Third Answer</label>
-        </div>
-        <div class="inputDiv">
-          <input type="radio" id="fourthInput" name="answer" />
-          <label for="fourthInput" id="alt4">Fourth Answer</label>
-        </div>
+          <button type="submit" id="btn-answer">Submit answer</button>
+        </form>
+      </main>
 
-        <button type="submit" id="btn-answer">Submit answer</button>
-      </form>
-    </main>
+      <section id="resultSection" class="hidden">
+        <p>
+          <span id="numberOfCorrectAnswers">0</span
+          ><span> <i class="fa-solid fa-check" style="color: greenyellow"></i></span>
+          /
+          <span id="numberOfQuestionsAnswered">0</span><span> <i class="fa-solid fa-question"></i></span>
+        </p>
+        <div id="currentScore">
+          <div class="resultDiv" id="result1">
+            <i class="fa-solid fa-check" style="color: greenyellow"></i>
+          </div>
+          <div class="resultDiv" id="result2">
+            <i class="fa-solid fa-xmark" style="color: lightcoral"></i>
+          </div>
+          <div class="resultDiv" id="result3">
+            <i class="fa-solid fa-question"></i>
+          </div>
+          <div class="resultDiv" id="result4">
+            <i class="fa-solid fa-question"></i>
+          </div>
+          <div class="resultDiv" id="result5">
+            <i class="fa-solid fa-question"></i>
+          </div>
+          <div class="resultDiv" id="result6">
+            <i class="fa-solid fa-question"></i>
+          </div>
+          <div class="resultDiv" id="result7">
+            <i class="fa-solid fa-question"></i>
+          </div>
+          <div class="resultDiv" id="result8">
+            <i class="fa-solid fa-question"></i>
+          </div>
+          <div class="resultDiv" id="result9">
+            <i class="fa-solid fa-question"></i>
+          </div>
+          <div class="resultDiv" id="result10">
+            <i class="fa-solid fa-question"></i>
+          </div>
+        </div>
+      </section>
+    </div>
 
-    <section id="resultSection" class="hidden">
-      <p>
-        <span id="numberOfCorrectAnswers">0</span><span> <i class="fa-solid fa-check"
-            style="color: greenyellow"></i></span>
-        /
-        <span id="numberOfQuestionsAnswered">0</span><span> <i class="fa-solid fa-question"></i></span>
-      </p>
-      <div class="currentScore">
-        <div class="resultDiv" id="result1">
-          <i class="fa-solid fa-check" style="color: greenyellow"></i>
-        </div>
-        <div class="resultDiv" id="result2">
-          <i class="fa-solid fa-xmark" style="color: lightcoral"></i>
-        </div>
-        <div class="resultDiv" id="result3">
-          <i class="fa-solid fa-question"></i>
-        </div>
-        <div class="resultDiv" id="result4">
-          <i class="fa-solid fa-question"></i>
-        </div>
-        <div class="resultDiv" id="result5">
-          <i class="fa-solid fa-question"></i>
-        </div>
-        <div class="resultDiv" id="result6">
-          <i class="fa-solid fa-question"></i>
-        </div>
-        <div class="resultDiv" id="result7">
-          <i class="fa-solid fa-question"></i>
-        </div>
-        <div class="resultDiv" id="result8">
-          <i class="fa-solid fa-question"></i>
-        </div>
-        <div class="resultDiv" id="result9">
-          <i class="fa-solid fa-question"></i>
-        </div>
-        <div class="resultDiv" id="result10">
-          <i class="fa-solid fa-question"></i>
-        </div>
-      </div>
+    <a href="#" id="startButton">Start</a>
+
+    <section id="scores">
+      <table id="scoreTable">
+        <tr>
+          <th>Nr</th>
+          <th>Score</th>
+          <th>Date</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>6/10</td>
+          <td>2024-03-31</td>
+        </tr>
+      </table>
     </section>
-  </div>
-
-  <a href="#" id="startButton">Start</a>
-
-  <section id="scores">
-    <table id="scoreTable">
-      <tr>
-        <th>Nr</th>
-        <th>Score</th>
-        <th>Date</th>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td>6/10</td>
-        <td>2024-03-31</td>
-      </tr>
-    </table>
-  </section>
-  <script src="./index.js"></script>
-  <script src="https://kit.fontawesome.com/61a5b666ff.js" crossorigin="anonymous"></script>
-</body>
-
+    <script src="./index.js"></script>
+    <script src="https://kit.fontawesome.com/61a5b666ff.js" crossorigin="anonymous"></script>
+  </body>
 </html>
