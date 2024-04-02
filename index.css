@@ -22,6 +22,7 @@ header {
   background-color: #1b2e2e;
   border: #1b2e2e solid 15px;
   border-radius: 15px;
+  font-size: calc(.5em + 1vw);
 }
 
 #questionsSection,
@@ -33,10 +34,18 @@ header {
   border-radius: 45px;
 }
 
+#questionsSection > main{
+    margin-bottom: 25px;
+}
+
 #questionHeader {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+}
+
+#questionText {
+    font-size: calc(.8em + 1vw);
 }
 
 #gameButtons {
@@ -47,12 +56,13 @@ header {
   font-size: 20px;
 }
 
-#restartButton > i:hover {
-  color: #fdfd96;
+#cancelButton {
+    font-size: 30px;
 }
 
 #cancelButton > i:hover {
   color: #ff6961;
+  transition: all .3s ease;
 }
 
 #questionForm {
@@ -69,11 +79,70 @@ header {
   padding: 15px;
   border: 2px solid darkslategray;
   border-radius: 15px;
+  font-size: 20px;
 }
 
 .inputDiv:hover {
   border-color: white;
   cursor: pointer;
+  transition: all .3s ease;
+}
+
+/* Hide the default radio button */
+input[type=radio] {
+    opacity: 0;
+    position: absolute;
+}
+
+/* Style the label to create a custom radio button */
+input[type="radio"] + label {
+    position: relative;
+    padding-left: 30px; /* Space for the custom radio button */
+    cursor: pointer;
+    display: inline-block;
+    line-height: 25px;
+}
+
+/* Create the unfilled radio button */
+input[type="radio"] + label::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 18px;
+    height: 18px;
+    border-radius: 100%;
+    border: 2px solid white;
+    background: #fff;
+}
+
+/* Create the filled radio button when selected */
+input[type="radio"]:checked + label::after {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 4px;
+    width: 14px;
+    height: 14px;
+    border-radius: 100%;
+    background: darkslategray; /* Change this to your desired color when selected */
+    transform: scale(1);
+    opacity: 1;
+    transition: all .3s ease;
+}
+
+/* Ensure the unfilled radio button is visible when not selected */
+input[type="radio"]:not(:checked) + label::after {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 4px;
+    width: 14px;
+    height: 14px;
+    border-radius: 100%;
+    background: #fff;
+    transform: scale(0);
+    opacity: 0;
 }
 
 #btn-answer {
@@ -87,6 +156,7 @@ header {
 #btn-answer:hover {
   border: white 2px solid;
   cursor: pointer;
+  transition: all .3s ease;
 }
 
 .currentScore {
@@ -106,6 +176,7 @@ header {
 
 #startButton:hover {
   border-color: white;
+  transition: all .3s ease;
 }
 
 #scores {
