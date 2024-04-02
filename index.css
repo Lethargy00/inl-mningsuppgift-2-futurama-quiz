@@ -7,26 +7,30 @@
 
 body {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     background-color: darkslategray;
+}
+
+header {    
+    margin-top: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #1b2e2e;
+    border: #1b2e2e solid 15px;
+    border-radius: 15px;
 }
 
 body > div {
     margin-top: 45px;
-    width: 1000px;
     background-color: #1b2e2e;
-    border-left: #1b2e2e solid 45px;
-    border-bottom: #1b2e2e solid 45px;
-    border-right: #1b2e2e solid 45px;
+    border: #1b2e2e solid 45px;
     border-radius: 45px;
 }
 
-header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 8vh;
+body > div > main {
+    width: 80vw;
 }
 
 #questionHeader {
@@ -61,6 +65,12 @@ header {
     background-color: darkslategray;
     border: 15px solid darkslategray;
     border-radius: 15px;
+}
+
+#startButton {
+    font-style: none;
+    text-decoration: none;
+    background-color: darkslategray;
 }
 
 #scores {
