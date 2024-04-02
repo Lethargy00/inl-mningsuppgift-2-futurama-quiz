@@ -22,19 +22,19 @@
         </div>
       </div>
       <form action="post" id="questionForm">
-        <div class="inputDiv">
+        <div class="inputDiv" onclick="document.getElementById('firstInput').checked = true;">
           <input type="radio" id="firstInput" name="answer" />
           <label for="firstInput" id="alt1">First Answer</label>
         </div>
-        <div class="inputDiv">
+        <div class="inputDiv" onclick="document.getElementById('secondInput').checked = true;">
           <input type="radio" id="secondInput" name="answer" />
           <label for="secondInput" id="alt2">Second Answer</label>
         </div>
-        <div class="inputDiv">
+        <div class="inputDiv" onclick="document.getElementById('thirdInput').checked = true;">
           <input type="radio" id="thirdInput" name="answer" />
           <label for="thirdInput" id="alt3">Third Answer</label>
         </div>
-        <div class="inputDiv">
+        <div class="inputDiv" onclick="document.getElementById('fourthInput').checked = true;">
           <input type="radio" id="fourthInput" name="answer" />
           <label for="fourthInput" id="alt4">Fourth Answer</label>
         </div>
@@ -42,7 +42,7 @@
       </form>
     </main>
 
-    <section id="resultSection" class="hidden">
+    <section id="resultSection">
       <p>
         <span id="numberOfCorrectAnswers">0</span><span> <i class="fa-solid fa-check"
             style="color: greenyellow"></i></span>

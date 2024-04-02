@@ -62,8 +62,14 @@ body > div {
 .inputDiv {
   width: 100%;
   background-color: darkslategray;
-  border: 15px solid darkslategray;
+  padding: 15px;
+  border: 2px solid darkslategray;
   border-radius: 15px;
+}
+
+.inputDiv:hover {
+    border-color: white;
+    cursor: pointer;
 }
 
 #btn-answer {
@@ -92,6 +98,10 @@ body > div {
     border-radius: 15px;
     background-color: #1b2e2e;
     cursor: pointer;
+}
+
+#startButton:hover {
+    border-color: white;
 }
 
 #scores {
