@@ -11,6 +11,8 @@ const inpAlt2 = document.getElementById("secondInput");
 const inpAlt3 = document.getElementById("thirdInput");
 const inpAlt4 = document.getElementById("fourthInput");
 const btnAnswer = document.getElementById("btn-answer");
+const currentScore = document.getElementById("currentScore");
+
 const btnResetQuiz = document.getElementById("restartButton");
 
 const spanNumberOfQuestionsAnswered = document.getElementById("numberOfQuestionsAnswered");
@@ -70,6 +72,9 @@ function populateQuestion(questionNumber) {
   alt2.textContent = randomizedFuturamaQuestions[questionNumber].possibleAnswers[1];
   alt3.textContent = randomizedFuturamaQuestions[questionNumber].possibleAnswers[2];
   alt4.textContent = randomizedFuturamaQuestions[questionNumber].possibleAnswers[3];
+
+  // update current score
+  updateScore();
 }
 
 function checkAnswer(questionNumber) {
@@ -88,16 +93,14 @@ function checkAnswer(questionNumber) {
     answers.push(false);
   }
 
-  spanNumberOfQuestionsAnswered.textContent = answers.length;
-  spanNumberOfCorrectAnswers.textContent = answers.filter(answer => answer === true).length;
-
   console.log(answers);
   if (answers.length < 10) {
-    // Clear the checked radio button
-    const radiobuttons = document.getElementsByName("answer");
-    for (var i = 0; i < radiobuttons.length; i++) {
-      radiobuttons[i].checked = false;
-    }
+    // Clear the checked radio button TODO: IMPLEMENT THIS?!
+
+    // const radiobuttons = document.getElementsByName("answer");
+    // for (var i = 0; i < radiobuttons.length; i++) {
+    //   radiobuttons[i].checked = false;
+    // }
 
     // Populate the next question
     populateQuestion(answers.length);
@@ -107,6 +110,56 @@ function checkAnswer(questionNumber) {
     btnAnswer.classList.add("hidden");
     console.log(answers);
   }
+}
+
+function updateScore() {
+  console.log("update score");
+
+  var html = "";
+
+  for (var i = 0; i < answers.length; i++) {
+    if (answers[i] === true) {
+      html += `
+      <div class="scoreDiv">
+        <div class='resultDiv'>
+          <i class='fa-solid fa-check' style='color: greenyellow'></i>
+        </div>
+        <p style="color:darkslategrey">${i + 1}</p>
+      </div>
+      `;
+    } else {
+      html += `
+      <div class="scoreDiv">
+        <div class="resultDiv">
+          <i class="fa-solid fa-xmark" style="color: lightcoral"></i>
+        </div>
+        <p style="color:darkslategrey">${i + 1}</p>
+      </div>
+      `;
+    }
+  }
+
+  html += `
+  <div class="scoreDiv">
+    <div class='resultDiv activeQuestion'>
+      <i class="fa-solid fa-question"></i>
+    </div>
+    <p>${answers.length + 1}</p>
+  </div>
+  `;
+
+  for (var i = answers.length + 1; i < 10; i++) {
+    html += `
+    <div class="scoreDiv">
+      <div class='resultDiv'>
+        <i class="fa-solid fa-question" style="color:darkslategrey"></i>
+      </div>
+      <p style="color:darkslategrey">${i + 1}</p>
+    </div>
+    `;
+  }
+
+  currentScore.innerHTML = html;
 }
 
 function resetQuiz() {
