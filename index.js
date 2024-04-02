@@ -136,6 +136,12 @@ function checkAnswer(questionNumber) {
     // Count the number of correct answers
     let correctAnswers = answers.filter(answer => answer === true).length;
 
+    // Create a heading "Final Score"
+    html += `<h1 style="font-size:3em">Final Score</h1>`;
+
+    // Create paragraph with number of correct answers / total number of questions
+    html += `<p id="finalScore">${correctAnswers} <span><i class='fa-solid fa-check' style='color: greenyellow'></i></span> / 10</p>`;
+
     // Create paragraph with message depending on the number of correct answers
     if (correctAnswers >= 8) {
       html += `<p id="finalScoreMessage">Wow! You are a true Futurama fan!</p>`;
@@ -145,11 +151,8 @@ function checkAnswer(questionNumber) {
       html += `<p id="finalScoreMessage">You suck at this! Better luck next time! :)</p>`;
     }
 
-    // Create paragraph with number of correct answers / total number of questions
-    html += `<p id="finalScore">${correctAnswers} <span><i class='fa-solid fa-check' style='color: greenyellow'></i></span> / 10</p>`;
-
     // Create a link that reloads the page
-    html += `<a id="restartButton" href="#" onclick="location.reload()">Try again!</a>`;
+    html += `<a style="color:lightcoral; font-size:2em; margin-top:20px;" href="#" onclick="location.reload()">Try again!</a>`;
 
     html += `</div>`;
 
