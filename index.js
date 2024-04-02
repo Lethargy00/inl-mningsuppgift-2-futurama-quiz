@@ -1,6 +1,7 @@
 const btnStartQuiz = document.getElementById("startButton");
 const questionsSection = document.getElementById("questionsSection");
 const resultSection = document.getElementById("resultSection");
+const highScoreSection = document.getElementById("scores");
 const question = document.getElementById("questionText");
 const alt1 = document.getElementById("alt1");
 const alt2 = document.getElementById("alt2");
@@ -63,6 +64,7 @@ function startNewQuiz() {
 
     // Hide elements
     hideElement(btnStartQuiz);
+    hideElement(highScoreSection);
 
     // Show elements
     showElement(questionsSection);
@@ -123,8 +125,36 @@ function checkAnswer(questionNumber) {
     populateQuestion(answers.length);
   } else {
     console.log("Quiz is over");
-    btnResetQuiz.classList.remove("hidden");
-    btnAnswer.classList.add("hidden");
+    // btnResetQuiz.classList.remove("hidden");
+    // btnAnswer.classList.add("hidden");
+    hideElement(questionsSection);
+    showElement(resultSection);
+    var html = "";
+
+    html += `<div id="finalResultDiv">`;
+
+    // Count the number of correct answers
+    let correctAnswers = answers.filter(answer => answer === true).length;
+
+    // Create paragraph with message depending on the number of correct answers
+    if (correctAnswers >= 8) {
+      html += `<p id="finalScoreMessage">Wow! You are a true Futurama fan!</p>`;
+    } else if (correctAnswers >= 4) {
+      html += `<p id="finalScoreMessage">Not too bad! But there is room for improvement!</p>`;
+    } else {
+      html += `<p id="finalScoreMessage">You suck at this! Better luck next time! :)</p>`;
+    }
+
+    // Create paragraph with number of correct answers / total number of questions
+    html += `<p id="finalScore">${correctAnswers} <span><i class='fa-solid fa-check' style='color: greenyellow'></i></span> / 10</p>`;
+
+    // Create a link that reloads the page
+    html += `<a id="restartButton" href="#" onclick="location.reload()">Try again!</a>`;
+
+    html += `</div>`;
+
+    resultSection.innerHTML = html;
+
     console.log(answers);
   }
 }
