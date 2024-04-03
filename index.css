@@ -5,6 +5,8 @@
   padding: 0;
   font-family: "Space Mono", sans-serif;
   color: white;
+  
+  user-select: none;
 }
 
 body {
@@ -42,7 +44,7 @@ header {
 
 #questionHeader {
   display: flex;
-  min-height: 85px;
+  min-height: 90px;
   justify-content: space-between;
 }
 
@@ -101,7 +103,7 @@ input[type="radio"] + label {
     padding-left: 30px; /* Space for the custom radio button */
     cursor: pointer;
     display: inline-block;
-    line-height: 25px;
+    line-height: 25px;    
 }
 
 /* Create the unfilled radio button */
