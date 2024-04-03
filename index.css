@@ -42,7 +42,7 @@ header {
 
 #questionHeader {
   display: flex;
-  flex-wrap: wrap;
+  min-height: 85px;
   justify-content: space-between;
 }
 
@@ -51,8 +51,7 @@ header {
 }
 
 #gameButtons {
-  display: flex;
-  align-items: center;
+
   margin-left: auto;
   gap: 10px;
   font-size: 20px;
