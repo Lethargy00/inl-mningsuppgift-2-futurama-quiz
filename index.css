@@ -277,14 +277,15 @@ input[type="radio"]:not(:checked) + label::after {
 }
 
 #clearResults{
-    padding: 15px;
-    font-size: 80px;
-    margin-top: 45px;
-    margin-bottom: 45px;
+    padding: 5px;
+    font-size: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
     border: solid 2px #1b2e2e;
     border-radius: 15px;
     background-color: #1b2e2e;
     cursor: pointer;
+    width: 310px;
 }
 
 #clearResults:hover {
