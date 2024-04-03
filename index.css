@@ -248,3 +248,17 @@ input[type="radio"]:not(:checked) + label::after {
   justify-content: center;
   align-items: center;
 }
+#finalResultDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#finalScoreMessage {
+  font-size: 2em;
+}
+
+#finalScore {
+  font-size: 8em;
+}
