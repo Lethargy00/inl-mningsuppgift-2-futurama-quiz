@@ -29,6 +29,7 @@ header {
 #resultSection {
   margin-top: 45px;
   width: 80vw;
+  max-width: 1000px;
   background-color: #1b2e2e;
   border: #1b2e2e solid 45px;
   border-radius: 45px;
@@ -189,6 +190,7 @@ input[type="radio"]:not(:checked) + label::after {
   background-color: #1b2e2e;
   border: #1b2e2e solid 15px;
   border-radius: 15px;
+  margin-bottom: 45px;
 }
 
 #scoreTable th {
@@ -197,6 +199,7 @@ input[type="radio"]:not(:checked) + label::after {
 
 #scoreTable th,
 #scoreTable td {
+  text-align: center;
   padding: 15px;
   border: 5px #1b2e2e solid;
   border-radius: 12px;
