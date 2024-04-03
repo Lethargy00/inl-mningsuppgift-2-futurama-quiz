@@ -275,3 +275,19 @@ input[type="radio"]:not(:checked) + label::after {
   border-color: white;
   transition: 0.3s ease;
 }
+
+#clearResults{
+    padding: 15px;
+    font-size: 80px;
+    margin-top: 45px;
+    margin-bottom: 45px;
+    border: solid 2px #1b2e2e;
+    border-radius: 15px;
+    background-color: #1b2e2e;
+    cursor: pointer;
+}
+
+#clearResults:hover {
+    border-color: white;
+    transition: all .3s ease;
+}
