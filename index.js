@@ -128,6 +128,7 @@ function checkAnswer(questionNumber) {
     // btnResetQuiz.classList.remove("hidden");
     // btnAnswer.classList.add("hidden");
     hideElement(questionsSection);
+    showElement(highScoreSection);
     showElement(resultSection);
     var html = "";
 
@@ -140,7 +141,7 @@ function checkAnswer(questionNumber) {
     html += `<h1 style="font-size:3em">Final Score</h1>`;
 
     // Create paragraph with number of correct answers / total number of questions
-    html += `<p id="finalScore">${correctAnswers} <span><i class='fa-solid fa-check' style='color: greenyellow'></i></span> / 10</p>`;
+    html += `<p id="finalScore">${correctAnswers}  / 10</p>`;
 
     // Create paragraph with message depending on the number of correct answers
     if (correctAnswers >= 8) {
@@ -152,7 +153,7 @@ function checkAnswer(questionNumber) {
     }
 
     // Create a link that reloads the page
-    html += `<a style="color:lightcoral; font-size:2em; margin-top:20px;" href="#" onclick="location.reload()">Try again!</a>`;
+    html += `<a id="tryAgainLink" href="#" onclick="location.reload()">Try again!</a>`;
 
     html += `</div>`;
 

@@ -33,6 +33,7 @@ header {
   background-color: #1b2e2e;
   border: #1b2e2e solid 45px;
   border-radius: 45px;
+  margin-bottom: 45px;
 }
 
 #questionsSection > main{
@@ -169,6 +170,7 @@ input[type="radio"]:not(:checked) + label::after {
   padding: 15px;
   font-size: 80px;
   margin-top: 45px;
+  margin-bottom: 45px;
   border: solid 2px #1b2e2e;
   border-radius: 15px;
   background-color: #1b2e2e;
@@ -178,12 +180,6 @@ input[type="radio"]:not(:checked) + label::after {
 #startButton:hover {
   border-color: white;
   transition: all .3s ease;
-}
-
-#scores {
-  margin-top: 45px;
-  display: flex;
-  justify-content: center;
 }
 
 #scoreTable {
@@ -248,17 +244,35 @@ input[type="radio"]:not(:checked) + label::after {
   justify-content: center;
   align-items: center;
 }
+
 #finalResultDiv {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 15px;  
+}
+
+#finalScore {
+  font-size: 6em;
 }
 
 #finalScoreMessage {
   font-size: 2em;
 }
 
-#finalScore {
-  font-size: 8em;
+#tryAgainLink {
+  color: white;
+  text-decoration: none;
+  font-size: 2em;
+  background-color: darkslategray;
+  padding: 15px;
+  border: 2px solid darkslategray;
+  border-radius: 15px;
+  margin-top: 45px;
+}
+
+#tryAgainLink:hover {
+  border-color: white;
+  transition: 0.3s ease;
 }
