@@ -1,76 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Futurama</title>
+    <link rel="stylesheet" href="./index.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Futurama</title>
-  <link rel="stylesheet" href="./index.css" />
-</head>
-
-<body>
-  <header>
-    <h1>Futurama Questions</h1>
-  </header>
-
-  <p id="errorMessage" style="color: red" class="hidden">Failed to fetch questions. Please try again later.</p>
-
-  <section id="questionsSection" class="hidden">
-    <main>
-      <div id="questionHeader">
-        <h2 id="questionText">Questions inserted here?</h2>
-        <div id="gameButtons">
-          <a href="" id="cancelButton"><i class="fa-regular fa-circle-xmark"></i></a>
-        </div>
+  <body>
+    <header>
+      <h1>Futurama Questions</h1>
+      <div id="totalScore">
+        <span id="totalQuestionsAnswered"></span><i class="fa-solid fa-question"></i>
+        <span id="totalCorrectAnswers"></span><i class="fa-solid fa-check" style="color: greenyellow"></i>
+        <span id="totalWrongAnswers"></span><i class="fa-solid fa-xmark" style="color: lightcoral"></i>
+        <button id="clearTotalScore"><i class="fa-regular fa-trash-can"></i></button>
       </div>
-      <form action="post" id="questionForm">
-        <div class="inputDiv" onclick="document.getElementById('firstInput').checked = true;">
-          <input type="radio" id="firstInput" name="answer" />
-          <label for="firstInput" id="alt1">First Answer</label>
-        </div>
-        <div class="inputDiv" onclick="document.getElementById('secondInput').checked = true;">
-          <input type="radio" id="secondInput" name="answer" />
-          <label for="secondInput" id="alt2">Second Answer</label>
-        </div>
-        <div class="inputDiv" onclick="document.getElementById('thirdInput').checked = true;">
-          <input type="radio" id="thirdInput" name="answer" />
-          <label for="thirdInput" id="alt3">Third Answer</label>
-        </div>
-        <div class="inputDiv" onclick="document.getElementById('fourthInput').checked = true;">
-          <input type="radio" id="fourthInput" name="answer" />
-          <label for="fourthInput" id="alt4">Fourth Answer</label>
-        </div>
-        <button type="submit" id="btn-answer">Next <i class="fa-solid fa-angle-right"></i></button>
-      </form>
-    </main>
-    <div id="currentScore"></div>
-  </section>
+    </header>
 
-  <section id="resultSection" class="hidden"></section>
+    <p id="errorMessage" style="color: red" class="hidden">Failed to fetch questions. Please try again later.</p>
 
-  <button id="startButton">Start</button>
+    <section id="questionsSection" class="hidden">
+      <main>
+        <div id="questionHeader">
+          <h2 id="questionText">Questions inserted here?</h2>
+          <div id="gameButtons">
+            <a href="" id="cancelButton"><i class="fa-regular fa-circle-xmark"></i></a>
+          </div>
+        </div>
+        <form action="post" id="questionForm">
+          <div class="inputDiv" onclick="document.getElementById('firstInput').checked = true;">
+            <input type="radio" id="firstInput" name="answer" />
+            <label for="firstInput" id="alt1">First Answer</label>
+          </div>
+          <div class="inputDiv" onclick="document.getElementById('secondInput').checked = true;">
+            <input type="radio" id="secondInput" name="answer" />
+            <label for="secondInput" id="alt2">Second Answer</label>
+          </div>
+          <div class="inputDiv" onclick="document.getElementById('thirdInput').checked = true;">
+            <input type="radio" id="thirdInput" name="answer" />
+            <label for="thirdInput" id="alt3">Third Answer</label>
+          </div>
+          <div class="inputDiv" onclick="document.getElementById('fourthInput').checked = true;">
+            <input type="radio" id="fourthInput" name="answer" />
+            <label for="fourthInput" id="alt4">Fourth Answer</label>
+          </div>
+          <button type="submit" id="btn-answer">Next <i class="fa-solid fa-angle-right"></i></button>
+        </form>
+      </main>
+      <div id="currentScore"></div>
+    </section>
 
-  <section id="scores">
-    <table id="scoreTable">
-      <tr>
-        <th>Nr</th>
-        <th>Score</th>
-        <th>Date</th>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td>6/10</td>
-        <td>2024-03-31</td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td>7/10</td>
-        <td>2024-04-02</td>
-      </tr>
-    </table>
-  </section>
-  <script src="./index.js"></script>
-  <script src="https://kit.fontawesome.com/61a5b666ff.js" crossorigin="anonymous"></script>
-</body>
+    <section id="resultSection" class="hidden"></section>
 
+    <button id="startButton">Start</button>
+
+    <section id="scores">
+      <table id="scoreTable">
+        <tr>
+          <th>Nr</th>
+          <th>Score</th>
+          <th>Date</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>6/10</td>
+          <td>2024-03-31</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>7/10</td>
+          <td>2024-04-02</td>
+        </tr>
+      </table>
+    </section>
+    <script src="./index.js"></script>
+    <script src="https://kit.fontawesome.com/61a5b666ff.js" crossorigin="anonymous"></script>
+  </body>
 </html>

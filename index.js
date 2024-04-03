@@ -15,10 +15,13 @@ const btnAnswer = document.getElementById("btn-answer");
 const currentScore = document.getElementById("currentScore");
 const errorMessage = document.getElementById("errorMessage");
 
-const btnResetQuiz = document.getElementById("restartButton");
-
 const spanNumberOfQuestionsAnswered = document.getElementById("numberOfQuestionsAnswered");
 const spanNumberOfCorrectAnswers = document.getElementById("numberOfCorrectAnswers");
+
+const totalQuestionsAnswered = document.getElementById("totalQuestionsAnswered");
+const totalCorrectAnswers = document.getElementById("totalCorrectAnswers");
+const totalWrongAnswers = document.getElementById("totalWrongAnswers");
+const btnClearTotalScore = document.getElementById("clearTotalScore");
 
 let allFuturamaQuestions = [];
 let randomizedFuturamaQuestions = [];
@@ -38,7 +41,6 @@ let fetchSuccess = false;
     hideElement(btnStartQuiz);
     showElement(errorMessage);
   } finally {
-    console.log(fetchSuccess);
     // TODO: Hide loading spinner
   }
 })();
@@ -82,7 +84,6 @@ function hideElement(element) {
 }
 
 function populateQuestion(questionNumber) {
-  console.log(randomizedFuturamaQuestions[questionNumber]);
   var quest = randomizedFuturamaQuestions[questionNumber].question;
   question.textContent = quest;
 
@@ -98,21 +99,18 @@ function populateQuestion(questionNumber) {
 
 function checkAnswer(questionNumber) {
   const correctAnswer = randomizedFuturamaQuestions[questionNumber].correctAnswer;
-  console.log(correctAnswer);
   let userAnswer = document.querySelector(
     `label[for="${document.querySelector("input[name='answer']:checked").id}"]`
   ).textContent;
-  console.log(userAnswer);
 
   if (correctAnswer === userAnswer) {
-    console.log("Correct answer");
     answers.push(true);
+    updateTotalScore(true);
   } else {
-    console.log("Wrong answer");
     answers.push(false);
+    updateTotalScore(false);
   }
 
-  console.log(answers);
   if (answers.length < 10) {
     // Clear the checked radio button TODO: IMPLEMENT THIS?!
 
@@ -124,9 +122,6 @@ function checkAnswer(questionNumber) {
     // Populate the next question
     populateQuestion(answers.length);
   } else {
-    console.log("Quiz is over");
-    // btnResetQuiz.classList.remove("hidden");
-    // btnAnswer.classList.add("hidden");
     hideElement(questionsSection);
     showElement(highScoreSection);
     showElement(resultSection);
@@ -158,14 +153,10 @@ function checkAnswer(questionNumber) {
     html += `</div>`;
 
     resultSection.innerHTML = html;
-
-    console.log(answers);
   }
 }
 
 function updateScore() {
-  console.log("update score");
-
   var html = "";
 
   for (var i = 0; i < answers.length; i++) {
@@ -213,6 +204,49 @@ function updateScore() {
   currentScore.innerHTML = html;
 }
 
+function updateTotalScore(isCorrect) {
+  var currentCorrectTotal = localStorage.getItem("correctTotal");
+  var currentWrongTotal = localStorage.getItem("wrongTotal");
+
+  if (currentCorrectTotal === null) {
+    currentCorrectTotal = 0;
+    localStorage.setItem("correctTotal", currentCorrectTotal);
+  }
+
+  if (currentWrongTotal === null) {
+    currentWrongTotal = 0;
+    localStorage.setItem("wrongTotal", currentWrongTotal);
+  }
+
+  if (isCorrect === undefined) {
+    totalQuestionsAnswered.textContent = Number(currentCorrectTotal) + Number(currentWrongTotal);
+    totalCorrectAnswers.textContent = currentCorrectTotal;
+    totalWrongAnswers.textContent = currentWrongTotal;
+    return;
+  }
+
+  if (isCorrect) {
+    currentCorrectTotal++;
+    localStorage.setItem("correctTotal", currentCorrectTotal);
+  } else {
+    currentWrongTotal++;
+    localStorage.setItem("wrongTotal", currentWrongTotal);
+  }
+  totalQuestionsAnswered.textContent = Number(currentCorrectTotal) + Number(currentWrongTotal);
+  totalCorrectAnswers.textContent = currentCorrectTotal;
+  totalWrongAnswers.textContent = currentWrongTotal;
+}
+
+updateTotalScore();
+
+function clearTotalScore() {
+  localStorage.setItem("correctTotal", 0);
+  localStorage.setItem("wrongTotal", 0);
+  totalQuestionsAnswered.textContent = 0;
+  totalCorrectAnswers.textContent = 0;
+  totalWrongAnswers.textContent = 0;
+}
+
 function resetQuiz() {
   answers = [];
   randomizedFuturamaQuestions = [];
@@ -230,4 +264,4 @@ btnAnswer.addEventListener("click", function (e) {
   checkAnswer(answers.length);
 });
 
-btnResetQuiz.addEventListener("click", resetQuiz);
+btnClearTotalScore.addEventListener("click", clearTotalScore);
