@@ -5,6 +5,8 @@
   padding: 0;
   font-family: "Space Mono", sans-serif;
   color: white;
+  
+  user-select: none;
 }
 
 body {
@@ -17,7 +19,8 @@ body {
 header {
   margin-top: 45px;
   display: flex;
-  gap: 100px;
+  flex-wrap: wrap;
+  gap: 20px;
   align-items: center;
   justify-content: center;
   background-color: #1b2e2e;
@@ -43,7 +46,7 @@ header {
 
 #questionHeader {
   display: flex;
-  min-height: 85px;
+  min-height: 90px;
   justify-content: space-between;
 }
 
@@ -97,11 +100,11 @@ input[type="radio"] {
 
 /* Style the label to create a custom radio button */
 input[type="radio"] + label {
-  position: relative;
-  padding-left: 30px; /* Space for the custom radio button */
-  cursor: pointer;
-  display: inline-block;
-  line-height: 25px;
+    position: relative;
+    padding-left: 30px; /* Space for the custom radio button */
+    cursor: pointer;
+    display: inline-block;
+    line-height: 25px;
 }
 
 /* Create the unfilled radio button */
@@ -292,4 +295,28 @@ input[type="radio"]:not(:checked) + label::after {
   font-size: 1em;
   background: none;
   border: none;
+}
+
+#clearTotalScore:hover i {
+  color: red;
+  cursor: pointer;
+}
+
+
+#clearResults{
+    padding: 5px;
+    font-size: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border: solid 2px #1b2e2e;
+    border-radius: 15px;
+    background-color: #1b2e2e;
+    cursor: pointer;
+    width: 310px;
+}
+
+#clearResults:hover {
+    color: red;
+    border-color: red;
+    transition: all .3s ease;
 }

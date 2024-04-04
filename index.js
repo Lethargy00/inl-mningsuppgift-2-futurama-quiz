@@ -97,6 +97,40 @@ function populateQuestion(questionNumber) {
   updateScore();
 }
 
+// function to update score table
+function updateScoreTable() {
+  // Get the table body
+  let tableBody = document.querySelector("#scoreTable tbody");
+
+  // Clear the table body
+  tableBody.innerHTML = "";
+
+  // For each result in the results array
+  for (let i = 0; i < results.length; i++) {
+    // Create a new row and cells
+    let row = document.createElement("tr");
+    let nrCell = document.createElement("td");
+    let scoreCell = document.createElement("td");
+    let dateCell = document.createElement("td");
+
+    // Set the cell values
+    nrCell.textContent = i + 1;
+    scoreCell.textContent = results[i].Score + "/10";
+    let date = new Date(results[i].Date); // Convert the date string back to a Date object
+    dateCell.textContent = date.toISOString().split('T')[0]; // Format the date as YYYY-MM-DD
+
+    // Add the cells to the row
+    row.appendChild(nrCell);
+    row.appendChild(scoreCell);
+    row.appendChild(dateCell);
+
+    // Add the row to the table body
+    tableBody.appendChild(row);
+  }
+}
+let results = JSON.parse(localStorage.getItem('results')) || [];
+updateScoreTable();
+
 function checkAnswer(questionNumber) {
   const correctAnswer = randomizedFuturamaQuestions[questionNumber].correctAnswer;
   let userAnswer = document.querySelector(
@@ -131,6 +165,21 @@ function checkAnswer(questionNumber) {
 
     // Count the number of correct answers
     let correctAnswers = answers.filter(answer => answer === true).length;
+
+    //Create a new result object
+    let result = {
+      Score: correctAnswers,
+      Date: new Date()
+    };
+
+    //Push the result object into the results array
+    results.push(result);
+
+    // Save the results to local storage
+  localStorage.setItem('results', JSON.stringify(results));
+
+  // Update the score table
+  updateScoreTable();
 
     // Create a heading "Final Score"
     html += `<h1 style="font-size:3em">Final Score</h1>`;
@@ -256,6 +305,19 @@ function resetQuiz() {
   questionsSection.classList.add("hidden");
   resultSection.classList.add("hidden");
 }
+
+document.getElementById('clearResults').addEventListener('click', function() {
+  // Remove results from local storage
+  localStorage.removeItem('results');
+
+  // Clear the table
+  let tableBody = document.querySelector("#scoreTable tbody");
+
+  // Remove all child (data rows from the table)
+  while (tableBody.firstChild) {
+      tableBody.removeChild(tableBody.firstChild);
+    }
+});
 
 btnStartQuiz.addEventListener("click", startNewQuiz);
 
