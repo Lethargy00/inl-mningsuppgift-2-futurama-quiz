@@ -309,6 +309,8 @@ function resetQuiz() {
 document.getElementById('clearResults').addEventListener('click', function() {
   // Remove results from local storage
   localStorage.removeItem('results');
+  // clear the results array
+  results = [];
 
   // Clear the table
   let tableBody = document.querySelector("#scoreTable tbody");
