@@ -26,6 +26,7 @@ const btnClearTotalScore = document.getElementById("clearTotalScore");
 let allFuturamaQuestions = [];
 let randomizedFuturamaQuestions = [];
 let answers = [];
+let results = JSON.parse(localStorage.getItem("results")) || [];
 
 let fetchSuccess = false;
 
@@ -117,7 +118,7 @@ function updateScoreTable() {
     nrCell.textContent = i + 1;
     scoreCell.textContent = results[i].Score + "/10";
     let date = new Date(results[i].Date); // Convert the date string back to a Date object
-    dateCell.textContent = date.toISOString().split('T')[0]; // Format the date as YYYY-MM-DD
+    dateCell.textContent = date.toISOString().split("T")[0]; // Format the date as YYYY-MM-DD
 
     // Add the cells to the row
     row.appendChild(nrCell);
@@ -128,7 +129,7 @@ function updateScoreTable() {
     tableBody.appendChild(row);
   }
 }
-let results = JSON.parse(localStorage.getItem('results')) || [];
+
 updateScoreTable();
 
 function checkAnswer(questionNumber) {
@@ -169,17 +170,17 @@ function checkAnswer(questionNumber) {
     //Create a new result object
     let result = {
       Score: correctAnswers,
-      Date: new Date()
+      Date: new Date(),
     };
 
     //Push the result object into the results array
     results.push(result);
 
     // Save the results to local storage
-  localStorage.setItem('results', JSON.stringify(results));
+    localStorage.setItem("results", JSON.stringify(results));
 
-  // Update the score table
-  updateScoreTable();
+    // Update the score table
+    updateScoreTable();
 
     // Create a heading "Final Score"
     html += `<h1 style="font-size:3em">Final Score</h1>`;
@@ -306,7 +307,7 @@ function resetQuiz() {
   resultSection.classList.add("hidden");
 }
 
-document.getElementById('clearResults').addEventListener('click', function() {
+document.getElementById("clearResults").addEventListener("click", function () {
   // Remove results from local storage
   localStorage.removeItem('results');
   // clear the results array
@@ -317,8 +318,8 @@ document.getElementById('clearResults').addEventListener('click', function() {
 
   // Remove all child (data rows from the table)
   while (tableBody.firstChild) {
-      tableBody.removeChild(tableBody.firstChild);
-    }
+    tableBody.removeChild(tableBody.firstChild);
+  }
 });
 
 btnStartQuiz.addEventListener("click", startNewQuiz);
