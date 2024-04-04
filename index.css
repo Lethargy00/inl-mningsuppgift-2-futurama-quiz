@@ -19,12 +19,13 @@ body {
 header {
   margin-top: 45px;
   display: flex;
+  gap: 100px;
   align-items: center;
   justify-content: center;
   background-color: #1b2e2e;
   border: #1b2e2e solid 15px;
   border-radius: 15px;
-  font-size: calc(.5em + 1vw);
+  font-size: calc(0.5em + 1vw);
 }
 
 #questionsSection,
@@ -38,8 +39,8 @@ header {
   margin-bottom: 45px;
 }
 
-#questionsSection > main{
-    margin-bottom: 25px;
+#questionsSection > main {
+  margin-bottom: 25px;
 }
 
 #questionHeader {
@@ -49,23 +50,22 @@ header {
 }
 
 #questionText {
-    font-size: calc(.8em + 1vw);
+  font-size: calc(0.8em + 1vw);
 }
 
 #gameButtons {
-
   margin-left: auto;
   gap: 10px;
   font-size: 20px;
 }
 
 #cancelButton {
-    font-size: 30px;
+  font-size: 30px;
 }
 
 #cancelButton > i:hover {
   color: #ff6961;
-  transition: all .3s ease;
+  transition: all 0.3s ease;
 }
 
 #questionForm {
@@ -88,13 +88,13 @@ header {
 .inputDiv:hover {
   border-color: white;
   cursor: pointer;
-  transition: all .3s ease;
+  transition: all 0.3s ease;
 }
 
 /* Hide the default radio button */
-input[type=radio] {
-    opacity: 0;
-    position: absolute;
+input[type="radio"] {
+  opacity: 0;
+  position: absolute;
 }
 
 /* Style the label to create a custom radio button */
@@ -103,49 +103,49 @@ input[type="radio"] + label {
     padding-left: 30px; /* Space for the custom radio button */
     cursor: pointer;
     display: inline-block;
-    line-height: 25px;    
+    line-height: 25px;
 }
 
 /* Create the unfilled radio button */
 input[type="radio"] + label::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 18px;
-    height: 18px;
-    border-radius: 100%;
-    border: 2px solid white;
-    background: #fff;
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 18px;
+  height: 18px;
+  border-radius: 100%;
+  border: 2px solid white;
+  background: #fff;
 }
 
 /* Create the filled radio button when selected */
 input[type="radio"]:checked + label::after {
-    content: "";
-    position: absolute;
-    left: 4px;
-    top: 4px;
-    width: 14px;
-    height: 14px;
-    border-radius: 100%;
-    background: darkslategray; /* Change this to your desired color when selected */
-    transform: scale(1);
-    opacity: 1;
-    transition: all .3s ease;
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 4px;
+  width: 14px;
+  height: 14px;
+  border-radius: 100%;
+  background: darkslategray; /* Change this to your desired color when selected */
+  transform: scale(1);
+  opacity: 1;
+  transition: all 0.3s ease;
 }
 
 /* Ensure the unfilled radio button is visible when not selected */
 input[type="radio"]:not(:checked) + label::after {
-    content: "";
-    position: absolute;
-    left: 4px;
-    top: 4px;
-    width: 14px;
-    height: 14px;
-    border-radius: 100%;
-    background: #fff;
-    transform: scale(0);
-    opacity: 0;
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 4px;
+  width: 14px;
+  height: 14px;
+  border-radius: 100%;
+  background: #fff;
+  transform: scale(0);
+  opacity: 0;
 }
 
 #btn-answer {
@@ -159,7 +159,7 @@ input[type="radio"]:not(:checked) + label::after {
 #btn-answer:hover {
   border: white 2px solid;
   cursor: pointer;
-  transition: all .3s ease;
+  transition: all 0.3s ease;
 }
 
 .currentScore {
@@ -180,7 +180,7 @@ input[type="radio"]:not(:checked) + label::after {
 
 #startButton:hover {
   border-color: white;
-  transition: all .3s ease;
+  transition: all 0.3s ease;
 }
 
 #scoreTable {
@@ -251,7 +251,7 @@ input[type="radio"]:not(:checked) + label::after {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 15px;  
+  gap: 15px;
 }
 
 #finalScore {
@@ -276,4 +276,22 @@ input[type="radio"]:not(:checked) + label::after {
 #tryAgainLink:hover {
   border-color: white;
   transition: 0.3s ease;
+}
+
+#totalScore {
+  display: flex;
+  align-items: center;
+  gap: 0px;
+  font-size: 1.5em;
+}
+
+#totalScore i {
+  padding-right: 15px;
+  padding-left: 5px;
+}
+
+#clearTotalScore {
+  font-size: 1em;
+  background: none;
+  border: none;
 }

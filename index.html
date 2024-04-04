@@ -12,6 +12,12 @@
 <body>
   <header>
     <h1>Futurama Questions</h1>
+    <div id="totalScore">
+      <span id="totalQuestionsAnswered"></span><i class="fa-solid fa-question"></i>
+      <span id="totalCorrectAnswers"></span><i class="fa-solid fa-check" style="color: greenyellow"></i>
+      <span id="totalWrongAnswers"></span><i class="fa-solid fa-xmark" style="color: lightcoral"></i>
+      <button id="clearTotalScore"><i class="fa-regular fa-trash-can"></i></button>
+    </div>
   </header>
 
   <p id="errorMessage" style="color: red" class="hidden">Failed to fetch questions. Please try again later.</p>
