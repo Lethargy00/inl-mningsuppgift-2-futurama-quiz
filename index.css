@@ -297,6 +297,11 @@ input[type="radio"]:not(:checked) + label::after {
   border: none;
 }
 
+#clearTotalScore:hover i {
+  color: red;
+  cursor: pointer;
+}
+
 
 #clearResults{
     padding: 5px;
@@ -311,6 +316,7 @@ input[type="radio"]:not(:checked) + label::after {
 }
 
 #clearResults:hover {
-    border-color: white;
+    color: red;
+    border-color: red;
     transition: all .3s ease;
 }
